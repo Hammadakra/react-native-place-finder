@@ -4,6 +4,10 @@
 A high-performance, production-ready React Native app for searching and saving places using the Google Maps Places API. Built with TypeScript and native modules, this project showcases advanced usage of maps, location persistence, smooth animations, and clean navigation architecture.
 
 ---
+# Important:
+To run this project, you must provide a valid Google Maps API key. See the .env section in the README for setup instructions.
+
+---
 
 ## 🚀 Features
 
