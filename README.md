@@ -1,97 +1,149 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# MapsPlaceSearchApp
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A high-performance, production-ready React Native app for searching and saving places using the Google Maps Places API. Built with TypeScript and native modules, this project showcases advanced usage of maps, location persistence, smooth animations, and clean navigation architecture.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🚀 Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 🔍 Google Places API with live search suggestions
+- 🗺️ Interactive Map with animated marker focus
+- 💾 Local search history persisted via AsyncStorage
+- 📍 View & navigate to saved locations from a separate screen
+- 🎯 Modular architecture using custom hooks & reusable components
+- ⚡ Fast and responsive UI (no 3rd-party design libraries used)
+- ✅ Type-safe navigation (React Navigation v6 + TypeScript)
+- 💅 Custom color scheme that complements Google Maps visuals
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
+## 🧠 Screens Overview
+
+- **MapScreen**
+  - Live search with Google Places autocomplete
+  - Animated camera + marker focus on selection
+  - Info card with address, coordinates & external Google Maps link
+  - Save selected places to local history
+
+- **DetailsScreen**
+  - Displays all saved locations from history
+  - Tap to focus any saved location back on the map
+
+---
+
+## 🧪 Tech Stack
+
+- React Native (TypeScript)
+- React Navigation (v6)
+- Google Places API
+- AsyncStorage
+- Animated API
+- Native Maps (via `react-native-maps`)
+
+---
+
+## 🔑 Environment Variables Setup
+
+Create a `.env` file in the root of the project:
+
+```env
+GOOGLE_MAPS_KEY=your_google_maps_api_key_here
+```
+
+This key will automatically be injected into the native code for both platforms.
+
+- ✅ Android: Key is auto-injected into `AndroidManifest.xml`
+- ✅ iOS: Key is read at runtime from `.env`
+
+**Note:** Do **not** ignore `.env` in `.gitignore` for this project (per requirement). You must manually add your key before running.
+
+---
+
+## 🛠 Installation
+
+```bash
+# Install dependencies
+yarn install
+
+# OR if you use npm
+npm install
+```
+
+---
+
+## 📱 Running the App
+
+### Start Metro
+
+```bash
+# With yarn
 yarn start
+
+# OR with npm
+npm start
 ```
 
-## Step 2: Build and run your app
+### Run on Android
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
+```bash
 yarn android
+# OR
+npm run android
 ```
 
-### iOS
+### Run on iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
+```bash
+cd ios && pod install && cd ..
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 🧼 Code Style & Structure
 
-## Step 3: Modify your app
+- `hooks/`: Custom hooks (`usePlaceSearch`, etc.)
+- `components/`: Fully reusable, memoized components
+- `navigation/`: Typed stack navigator configuration
+- `screens/`: UI screens (MapScreen, DetailsScreen)
+- `utils/`: Helpers like coordinate formatting, theme, etc.
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 📂 Folder Structure
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```
+src/
+├── components/
+├── hooks/
+├── navigation/
+├── screens/
+├── utils/
+└── App.tsx
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 👨‍💻 Developer Notes
 
-You've successfully run and modified your React Native App. :partying_face:
+- All components are wrapped with `React.memo` where needed to reduce re-renders.
+- Logic-heavy parts (e.g., API fetch, marker animation, AsyncStorage logic) are extracted to hooks.
+- Built with readability, reusability, and interview-readiness in mind.
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🧪 TODOs / Extensions (Optional)
 
-# Troubleshooting
+- Add unit tests (Jest + React Native Testing Library)
+- Add bottom sheet instead of info card
+- Offline support for previously viewed results
+- Add favorite/starred places
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## 📄 License
 
-To learn more about React Native, take a look at the following resources:
+This project is for demo and interview purposes. You are free to fork and customize.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
