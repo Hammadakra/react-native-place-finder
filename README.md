@@ -51,12 +51,12 @@ Create a `.env` file in the root of the project:
 GOOGLE_MAPS_KEY=your_google_maps_api_key_here
 ```
 
-This key will automatically be injected into the native code for both platforms.
+This key will automatically be injected into the native code for android.
 
 - ✅ Android: Key is auto-injected into `AndroidManifest.xml`
 - ✅ iOS: Key is read at runtime from `.env`
 
-**Note:** Do **not** ignore `.env` in `.gitignore` for this project (per requirement). You must manually add your key before running.
+ 
 
 ---
 
@@ -130,15 +130,6 @@ src/
 - All components are wrapped with `React.memo` where needed to reduce re-renders.
 - Logic-heavy parts (e.g., API fetch, marker animation, AsyncStorage logic) are extracted to hooks.
 - Built with readability, reusability, and interview-readiness in mind.
-
----
-
-## 🧪 TODOs / Extensions (Optional)
-
-- Add unit tests (Jest + React Native Testing Library)
-- Add bottom sheet instead of info card
-- Offline support for previously viewed results
-- Add favorite/starred places
 
 ---
 
