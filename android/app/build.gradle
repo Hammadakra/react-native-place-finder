@@ -82,6 +82,7 @@ android {
         applicationId "com.mapsplacesearchapptest"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+       resValue "string", "google_maps_key", googleMapsApiKey
         versionCode 1
         versionName "1.0"
     }
@@ -117,3 +118,20 @@ dependencies {
         implementation jscFlavor
     }
 }
+def loadEnv() {
+    def env = [:]
+    def envFile = rootProject.file(".env")
+    if (envFile.exists()) {
+        envFile.eachLine { line ->
+            if (!line || line.trim().startsWith("#")) return
+            def parts = line.split("=")
+            if (parts.length == 2) {
+                env[parts[0].trim()] = parts[1].trim()
+            }
+        }
+    }
+    return env
+}
+
+def env = loadEnv()
+
